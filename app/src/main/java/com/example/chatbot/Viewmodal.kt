@@ -10,30 +10,10 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import kotlinx.coroutines.CoroutineScope
+
 class Viewmodal : ViewModel() {
-    private val repository = repository()
     private val _messages = MutableLiveData<MutableList<ChatMessage>>(mutableListOf())
     val messages: LiveData<MutableList<ChatMessage>> = _messages
-
-//    fun sendUserMessage1(userText: String) {
-//        val updatedList = _messages.value ?: mutableListOf()
-//        updatedList.add(ChatMessage(userText, true))
-//        _messages.value = updatedList
-//
-//        repository.sendMessageToBot(
-//            userText,
-//            onResult = { reply ->
-//                val newList = _messages.value ?: mutableListOf()
-//                newList.add(ChatMessage(reply, false))
-//                _messages.postValue(newList)
-//            },
-//            onError = { error ->
-//                val newList = _messages.value ?: mutableListOf()
-//                newList.add(ChatMessage(error, false))
-//                _messages.postValue(newList)
-//            }
-//        )
-//    }
 
     fun sendUserMessage(context: Context, message: String) {
         _messages.value?.add(ChatMessage(message, true))
@@ -67,7 +47,9 @@ class Viewmodal : ViewModel() {
             messages = listOf(Message("user", prompt))
         )
 
-        api.chat(request, "Bearer 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")
+        val apiKey = "Bearer ${BuildConfig.OPENROUTER_API_KEY}"
+
+        api.chat(request, apiKey)
             .enqueue(object : Callback<ChatResponse> {
                 override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
                     val reply = response.body()?.choices?.firstOrNull()?.message?.content
