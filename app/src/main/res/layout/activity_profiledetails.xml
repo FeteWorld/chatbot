@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:text="addinfo"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         android:layout_marginBottom="10px"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

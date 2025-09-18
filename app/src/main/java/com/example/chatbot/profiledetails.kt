@@ -46,7 +46,7 @@ class profiledetails : AppCompatActivity() {
         editor.putString("userInput", editText.text.toString())
         editor.apply()
 
-        Toast.makeText(this,"added",Toast.LENGTH_LONG).show()
+        Toast.makeText(this,"Data added.",Toast.LENGTH_LONG).show()
 
     }
 }

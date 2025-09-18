@@ -15,17 +15,18 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Chatbot"
         tools:targetApi="31" >
-
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
         <activity
             android:name=".profiledetails"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
-            android:windowSoftInputMode="adjustResize"
+            android:name=".home"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.Chatbot"
-            >
+            android:windowSoftInputMode="adjustResize" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

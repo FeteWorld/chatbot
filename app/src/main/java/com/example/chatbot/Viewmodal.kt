@@ -1,6 +1,7 @@
 package com.example.chatbot
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -41,9 +42,10 @@ class Viewmodal : ViewModel() {
             .build()
 
         val api = retrofit.create(OpenRouterApi::class.java)
+        Log.d("test",prompt)
 
         val request = ChatRequest(
-            model = "mistralai/mistral-7b-instruct", // or gpt-3.5, gpt-4
+            model = "gpt-4o-mini", // or gpt-3.5, gpt-4
             messages = listOf(Message("user", prompt))
         )
 
@@ -55,6 +57,7 @@ class Viewmodal : ViewModel() {
                     val reply = response.body()?.choices?.firstOrNull()?.message?.content
                     _messages.value?.add(ChatMessage(reply ?: "No response", false))
                     _messages.postValue(_messages.value)
+                    Log.d("test",response.body().toString())
                 }
 
                 override fun onFailure(call: Call<ChatResponse>, t: Throwable) {

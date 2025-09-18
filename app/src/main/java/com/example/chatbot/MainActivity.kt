@@ -51,7 +51,7 @@ class MainActivity : ComponentActivity() {
     fun addinfo(view: View){
         val intent = Intent(this,profiledetails::class.java)
         startActivity(intent);
-        Toast.makeText(this,"test",Toast.LENGTH_LONG).show()
+//        Toast.makeText(this,"test",Toast.LENGTH_LONG).show()
     }
 
 }

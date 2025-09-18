@@ -50,6 +50,7 @@ android {
     buildFeatures {
         compose = true
         buildConfig = true
+        viewBinding = true
     }
 }
 
@@ -69,6 +70,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.androidx.navigation.ui.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -83,4 +86,8 @@ dependencies {
     implementation("com.squareup.okhttp3:logging-interceptor:4.9.3")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
+    implementation ("org.tensorflow:tensorflow-lite:2.13.0")
+    implementation ("org.tensorflow:tensorflow-lite-support:0.3.1")
+    implementation ("org.tensorflow:tensorflow-lite-gpu:2.13.0")
+    implementation ("org.tensorflow:tensorflow-lite-select-tf-ops:2.13.0")
 }
